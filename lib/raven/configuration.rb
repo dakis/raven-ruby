@@ -107,6 +107,7 @@ module Raven
       'ActionController::InvalidAuthenticityToken',
       'ActionController::RoutingError',
       'ActionController::UnknownAction',
+      'ActionController::MethodNotAllowed',
       'ActiveRecord::RecordNotFound',
       'CGI::Session::CookieStore::TamperedWithCookie',
       'Mongoid::Errors::DocumentNotFound',
