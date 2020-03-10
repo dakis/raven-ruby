@@ -26,7 +26,7 @@ module Raven
     attr_reader :id
     attr_accessor :project, :message, :timestamp, :time_spent, :level, :logger,
       :culprit, :server_name, :release, :modules, :extra, :tags, :context, :configuration,
-      :checksum, :fingerprint
+      :checksum, :fingerprint, :environment
 
     def initialize(init = {})
       @configuration = Raven.configuration
@@ -48,6 +48,8 @@ module Raven
       @tags          = {}
       @checksum      = nil
       @fingerprint   = nil
+
+      @environment = @configuration.current_environment
 
       yield self if block_given?
 
@@ -115,6 +117,8 @@ module Raven
       data[:tags] = @tags if @tags
       data[:user] = @user if @user
       data[:checksum] = @checksum if @checksum
+      data[:environment] = @environment if @environment
+
       @interfaces.each_pair do |name, int_data|
         data[name.to_sym] = int_data.to_hash
       end
