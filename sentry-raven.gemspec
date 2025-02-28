@@ -9,8 +9,6 @@ Gem::Specification.new do |gem|
   gem.email = "getsentry@googlegroups.com"
   gem.homepage = "https://github.com/getsentry/raven-ruby"
   gem.authors = ["Sentry Team"]
-  gem.has_rdoc = true
-  gem.extra_rdoc_files = ["README.md", "LICENSE"]
   gem.files = Dir['lib/**/*']
   gem.executables = gem.files.grep(%r{^exe/}) { |f| File.basename(f) }
   gem.license = 'Apache-2.0'
